@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>第7回実習課題 (CSS の基本)</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- リセットCSSの読み込み：次回授業で解説します -->
+<link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
+<!-- Google Fonts の読み込み：Montserrat と Kosugi フォントを使えるようにする -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kosugi&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="no7.css">
+<style>
+:lang(en) { 
+  font-family: "Montserrat", sans-serif; /* 英語フォントは Googleフォントの Montserrat を使用 */
+}
+.border_radius {
+    font-size: 18px;
+    background-color: #ffa476;
+    border-radius: 40px;
+    width: 60%;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+}
+.gradient {
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    color: #ffffff;
+    width: 250px;
+    background: linear-gradient(to bottom, rgba(84,116,178,0.21) 0%, #5474b2 100%);
+}
+pre {
+    display: block;
+    border: solid 1px red;
+    background-color: #FFCCFF;
+    margin: 5px auto;
+    padding: 5px 10px;
+}
+
+</style>
+</head>
+
+<body>
+<header>
+  <h1>第5回授業実習課題：CSSの記述方法</h1>
+  <p>この実習課題のスタイル指定は、CSSを記述したらプレビューを更新、記述したらプレビューを更新、という手順で結果を確認しながら進めてください。意図通りにならない場合には、コードを見直すこと。なお、Web サーバ上に置いたコンテンツは、Webブラウザのキャッシュが残っているために、スタイル情報がすぐには更新されないことがありますので、注意してください。また、PC上で更新したデータはFTPを使ってアップロードし(直さ)ないとWebサーバ上に反映されない点も確認しましょう。</p>
+  <p>この実習はVS Codeの「Live Preview」でプレビューをおこないながらをします。行が長い場合はAlt + Z (macOS: option + Z)で行の折り返しをしてください。</p>
+  <p>実習を始める前に、HTML文書の最後にあるfooter要素の中の *your name here* のところにあなたの名前をアルファベットで、また、address要素にある your_email_address_here@reitaku.jp をあなたの電子メールアドレスに書き換えておいてください。</p>
+</header>
+<main>
+<article>
+  <h2>実習課題 No. 0</h2>
+  <section>
+    <h3>基本練習1: style属性の記述 (資料p.4, §2.4)</h3>
+	<p>以下のp要素にstyle属性(style="...")を追加し、1字字下げのスタイルを適用してみよう(style=&quot;text-indent: 1em&quot;)。p要素の開始タグに、直接style属性を書き込む。VS Codeのコード補完機能を活用しましょう。次に、p要素の中の2つめのspan要素にstyle属性を追加しよう(style=&quot;font-family: 'Osaka-mono', 'MS Gothic', 'monospace'; background-color: khaki&quot;)。1つめのspan要素には、style属性が記述ずみなので、参考にするとよい。</p>
+    <p style="text-indent: 1em">この段落を1字字下げします。1字字下げのCSSは <span style="font-family: 'Osaka-mono', 'MS Gothic', 'monospace'; background-color: khaki">text-indent: 1em</span> と記述します。基本となるフォントのスタイルは font-family というCSSのプロパティで設定します。例えば、コンピュータのコードなどに使う等幅フォントで表現したい場合、CSSで <span>font-family: monospace</span> という記述をおこないます。</p>
+  </section>
+  <section>
+    <h3>基本練習2: style要素に記述されたスタイルの利用  (資料p.4, §2.3)</h3>
+	<p>このHTML文書のhead要素の中にstyle要素があり、その中でborder-radiusとgradientという2つのclassに適用するスタイルが指定されている。以下のp要素に<strong>class属性</strong>をそれぞれ指定し、style要素の中に記述されたスタイルを適用してみよう。</p>
+    <h4>角丸スタイル：class=&quot;border-radius&quot;</h4>
+    <p class="border-radius">border-radius をここに指定しなさい。画像を使わずに角丸を表現することができます。</p>
+    <h4>グラデーションの表現：class=&quot;gradient&quot;</h4>
+    <p class="gradient">gradient をここに指定し、グラデーションを表現しなさい。</p>
+  </section>
+  <section>
+    <h3>基本練習3: スタイルシートファイルの追加  (資料p.3, §2.2)</h3>
+	<p>VS Code でスタイルシートを新規作成します。ファイル名「no7.css」(全て半角小文字)をつけ、新規スタイルシートを「2026web」フォルダの中の「css」サブフォルダに保存する。(なお、この課題ファイルは「2026web」フォルダの中に直接保存すること。)</p>
+	<p>上記の作業の結果、HTMl文書のhead要素にlink要素が追加され、作成したスタイルシートファイルがリンクされる。スタイルシートファイルは「ソースコード(HTML文書)」とタブを切り替えながらVS Codeの中で編集することができる。</p>
+  </section>
+  <section>
+    <h3>基本練習4: スタイルシートファイルの利用  (資料p.4, §2.4)</h3>
+	<p>スタイルシートno7.cssにスタイルを記述してみよう。基本的なスタイルの記述方法は「<strong>セレクタ { プロパティ : プロパティの値 }</strong>」である。HTMLの基本のフォントサイズとして10px (ちょっと小さめ)を指定しよう。body要素をセレクタとしてフォント指定をおこなう。また、background-image プロパティを使い、背景画像 blue.jpg を表示させよう。さらに、左右の余白を空けるよう、main要素をセレクタとして、以下のようにCSSを記述する。</p>
+<pre>
+@charset &quot;utf-8&quot;; /* 文字エンコードを記述 */
+body { 
+    font-size: 12px;
+    line-height: 1.7;
+    background-image: url(&quot;../img/blue.jpg&quot;);
+    font-family: &quot;Kosugi&quot;, sans-serif; /* Webフォント (Google Fonts) の Kosugi フォントを使用 */
+}
+main {
+    max-width: 1120px;
+    margin: auto;
+    padding: 0 1.5rem;
+}
+</pre>
+	<p>画像ファイルは「2026web」の中の「 img 」フォルダの中に入れてある。スタイルシートに記述している参照パス(url(&quot;../img/blue.jpg&quot;))は、「cssフォルダから2026webフォルダに出て(../)、imgフォルダに入り(img/)、imgフォルダの中のblue.jpgを表示する」ことを表わしている。</p>
+	<p>スタイルシートのⅠ行目には、<code>@charset &quot;utf-8&quot;;</code> というスタイルシートの文字エンコードの記述があるので、スタイルはその後に書いていくようにしよう。</p>
+	<p>スタイルシートファイルの内容は上から順番に適用されていくので、標準的なスタイルを先に書いておくのが基本である。基本練習4のスタイルは重要なスタイル情報なので、今回のように最初に書いておこう。以下の実習課題のスタイルはこのスタイルの下に続けて記述していくこと。</p>
+  </section>
+</article>
+<article id="ex1">
+    <h2>実習課題 No. 1 (資料p.6, §3.2)</h2>
+    <p>サイズ指定に使う単位の指定</p>
+    <section>
+      <h3>練習</h3>
+      <p><code>id=&quot;ex1&quot;</code> が指定された article 要素とその子要素のスタイルについて、以下を設定しなさい。</p>
+<pre>
+/* 実習課題 No. 1 */
+#ex1 { font-size: 20px; }
+#ex1 section { font-size: 16px; }
+#ex1 h2 { font-size: 1.5em; }
+#ex1 p { font-size: 0.8em; }
+</pre>
+      <ol>
+        <li>px (ピクセル) を使って画面ピクセルに対する相対サイズを指定する。
+          <ul>
+            <li>section要素：20px</li>
+            <li>article要素：16px</li>
+          </ul>
+        </li>
+        <li>em (1文字分の倍数) を使って親要素を基準とする相対サイズを指定する。
+          <ul>
+            <li>section要素の中のh2要素：1.5em</li>
+            <li>section要素の中のp要素：0.8em</li>
+          </ul>
+        </li>
+      </ol>
+    </section>
+  </article>
+  <article id="ex2">
+    <h2>実習課題 No. 2</h2>
+    <p>フォントの種類や太さ、装飾に使うプロパティ</p>
+    <section>
+      <h3>練習</h3>
+      <p><code>id=&quot;ex2&quot;</code> が指定されたarticle要素およびその子要素のスタイルについて、以下を設定しなさい。</p>
+<pre>
+/* 実習課題 No. 2 */
+#ex2 { font-weight: 400; } /* 400 が基準、100から9000まで±100単位で指定 */ 
+#ex2 section { font-weight: 400; line-height: 1.75; } /* font-weight プロパティは 100～900 までの範囲を100ずつ区切って指定する。標準は400 */ 
+#ex2 h2 { font-weight: 500; letter-spacing: 10px; text-align: center; }
+#ex2 p { font-weight: 300; text-decoration: underline; text-indent: 1em; }
+</pre>
+    </section>
+</article>
+<article id="ex3">
+    <h2>実習課題 No. 3</h2>
+    <p>色の指定方法</p>
+    <section>
+      <h3>練習</h3>
+      <p><code>id=&quot;ex3&quot;</code> が指定された要素のスタイルについて、以下を設定しなさい。</p>
+<pre>
+/* 実習課題 No. 3 */
+#ex3 { color: #FF00FF; /* red */ }
+#ex3 section { background-color: rgb(0, 86, 172); }
+#ex3 h2 { background-color: rgb(0, 86, 172); }
+#ex3 p { color: hsl(128, 40%, 70%); }
+</pre>
+      <p>色指定を助けるツール：<a href="https://color.adobe.com/ja/" target="_blank">Adobe Color CC</a></p>
+    </section>
+  </article>
+  <article id="ex4">
+    <h2>実習課題 No. 4</h2>
+    <p>色の指定方法（αチャンネル）</p>
+    <section>
+      <h3>練習</h3>
+      <p><code>id=&quot;ex4&quot;</code> が指定された要素のスタイルについて、以下を設定しなさい。</p>
+<pre>
+/* 実習課題 No. 4 */
+#ex4 { color: #FF00FF; /* red */ }
+#ex4 h2 { background-color: rgba(0, 86, 172, 0.5); } /* 最後の0.5は不透明度の値。αチャンネルを使って半透明にしない場合は rgb() を使う。 */
+#ex4 p { color: hsla(128, 40%, 70%, 0.1); } /* hsla の最後の0.1は不透明度の値。αチャンネルを使って半透明にしない場合は hsl() を使う。 */
+</pre>
+    </section>
+  </article>
+<article id="ex5">
+    <h2>実習課題 No. 5 (資料p.6, §3.1に概略あり)</h2>
+    <p>ボックスモデル：サイズ、間隔、配置の3要素の調整</p>
+    <section>
+      <h3>練習</h3>
+      <p><code>id=&quot;ex5&quot;</code> が指定された要素のスタイルについて、余白 margin プロパティを設定しなさい。</p>
+<pre>
+/* 実習課題 No. 5 */
+#ex5 { 
+  margin: 10px 40px 10px 30px; 
+  border: solid 1px #8b7348; 
+  background-color: rgb(0, 86, 172); 
+}
+#ex5 section { 
+  margin: 0; 
+  border: dotted 1px red; 
+  background-color: #FFFFFF; 
+}
+</pre>
+    </section>
+  </article>
+  <article id="ex6">
+    <h2>実習課題 No. 6 (資料p.6, §3.1に概略あり)</h2>
+    <p>ボックスモデル：サイズ、間隔、配置の3要素の調整 (2)</p>
+    <section>
+      <h3>練習</h3>
+      <p><code>id=&quot;ex6&quot;</code> が指定された要素のスタイルについて、余白 margin プロパティと詰め物 padding プロパティを設定しなさい。</p>
+<pre>
+/* 実習課題 No. 6 */
+#ex6 { 
+  margin: 10px 40px 10px 30px; 
+  padding: 10px; 
+  border: solid 1px #8b7348; 
+  background-color: rgb(0, 86, 172); 
+}
+#ex6 section { 
+  margin: 0; 
+  padding: 10px 25px; 
+  border: dotted 1px red; 
+  background-color: #FFFFFF; 
+}
+</pre>
+      <p>margin, padding とも、上から時計回りに余白を記述する。2箇所の場合は上下・左右の順で、1箇所の場合は上・右・下・左全ての余白を同一の長さで設定する。</p>
+    </section>
+  </article>
+  <article id="ex7">
+    <h2>実習課題 No. 7 (資料p.6, §3.1に概略あり)</h2>
+    <p>ボックスモデル：サイズ、間隔、配置の3要素の調整 (3)</p>
+    <section>
+      <h3>練習</h3>
+      <p><code>id=&quot;ex7&quot;</code> が指定された要素のスタイルについて、幅と長さを指定しなさい。</p>
+      <pre>
+/* 実習課題 No. 7 */
+#ex7 p { 
+  margin: 5px auto; 
+  padding: 10px; 
+  width: 40%;
+  border: solid 10px red; 
+  background-color: #FFCCFF;
+}
+</pre>
+      <ol>
+        <li>width (, height) プロパティを使ってp要素の画面上の相対サイズを指定する。
+          <ul>
+            <li>width プロパティ: 40%</li>
+          </ul>
+        </li>
+        <li>p要素を中央揃えしなさい。margin プロパティで左右を auto に設定する。
+          <ul>
+            <li>p 要素の margin-left プロパティ：auto</li>
+            <li>p 要素の margin-right プロパティ：auto</li>
+          </ul>
+        </li>
+      </ol>
+    </section>
+</article>
+<article id="ex8">
+    <h2>実習課題 No. 8 (資料p.6, §3.1に概略あり)</h2>
+    <p>display プロパティの切り替え (ブロック⇔インライン)</p>
+    <section>
+      <h3>練習</h3>
+      <p><code>id=&quot;ex8&quot;</code> が指定された要素のスタイルについて、番号つきの箇条書きをインラインにし、パンくずリストのスタイルを設定してみよう。1つずつプロパティを設定するとしくみがよく分かる。</p>
+      <pre>
+/* 実習課題 No. 8 */
+#ex8 ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 0.8em;
+}
+#ex8 ol li { display: inline; }
+#ex8 ol li::after {
+  content: "▶";
+  padding-left: 7px;
+} /* 疑似クラス li::after はリスト要素 li の後のスタイルを指定する */
+#ex8 ol li:last-child::after { content: none; } /* 疑似クラス li:last-child は最後の要素を指定する */
+</pre>
+      <ol>
+        <li>Home</li>
+        <li>講座案内</li>
+        <li>春期講座</li>
+        <li>フィンランド語入門</li>
+      </ol>
+    </section>
+  </article>
+  <article id="ex9">
+    <h2>実習課題 No. 9 (資料p.6, §3.1に概略あり)</h2>
+    <p>footer 要素のスタイル</p>
+    <section>
+      <h3>練習</h3>
+      <p>footer要素のスタイルについて、display プロパティで footer をブロック block に、address をインライン inline に、また内容を中央揃えにし、色を調整しよう。</p>
+<pre>
+/* 実習課題 No. 9 */
+footer {
+  display: block;
+  background-color: #352b23;
+  color: #ffffff;
+  text-align: center;
+}
+address { display: inline; }
+</pre>
+    </section>
+  </article>
+  <article id="ex10">
+    <h2>実習課題 No. 10</h2>
+    <p>ボタン的なボックスの絶対配置</p>
+    <section>
+      <h3>練習</h3>
+      <p>footer要素の中にある gradient の class 属性をもつ「HTML5 lint」ボタンについて、id=&quot;share&quot; をつけよう。position プロパティで表示位置を fixed にし、画面下から10px, 右端から 10px のところに配置しよう。</p>
+<pre>
+/* 実習課題 No. 10 */
+#share { 
+  position: fixed; 
+  bottom: 10px; 
+  right: 10px; 
+}
+</pre>
+  </section>
+</article>
+</main>
+<footer>
+  <div id="share" class="gradient" lang="en"><a href="https://www.htmllint.net/html-lint/htmllint.html" target="_blank">Another HTML lint 5</a></div>
+  2026 &copy; Kitaura Yoshiyuki (
+<address>a240906y@reitaku.jp</address>
+  ) </footer>
+</body>
+</html>

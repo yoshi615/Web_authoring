@@ -1,0 +1,128 @@
+@charset "utf-8";
+
+body { 
+    font-size: 10px;
+    line-height: 1.7;
+    background-image: url("./img/blue.jpg");
+    font-family: "Kosugi", sans-serif;
+}
+main {
+    max-width: 1120px;
+    margin: auto;
+    padding: 0 1.5rem;
+}
+#ex1 {
+    font-size: 20px;
+}
+#ex1 section {
+    font-size: 16px;
+}
+#ex1 h2 {
+    font-size: 1.5em;
+}
+#ex1 p {
+    font-size: 0.8em;
+}
+#ex2 {
+    font-weight: 400;
+}
+#ex2 section {
+    font-weight: 400; 
+    line-height: 1.75; 
+}
+#ex2 h2 {
+    font-weight: 500;
+    letter-spacing: 10px;
+    text-align: center;
+}
+#ex2 p {
+    font-weight: 300;
+    text-decoration: underline;
+    text-indent: 1em;
+}
+#ex3 {
+    color: #FF00FF; /* red */
+}
+#ex3 section {
+    background-color: rgb(0, 86, 172);
+}
+#ex3 h2 {
+    background-color: rgb(0, 86, 172);
+}
+#ex3 p {
+    color: hsl(128, 40%, 70%);
+}
+#ex4 {
+    color: #FF00FF;
+}
+#ex4 h2 {
+    background-color: rgba(0, 86, 172, 0.5);
+}
+#ex4 p {
+    color: hsla(128, 40%, 70%, 0.1);
+}
+#ex5 { 
+  margin: 10px 40px 10px 30px; 
+  border: solid 1px #8b7348; 
+  background-color: rgb(0, 86, 172); 
+}
+#ex5 section { 
+  margin: 0; 
+  border: dotted 1px red; 
+  background-color: #FFFFFF; 
+}
+#ex6 { 
+  margin: 10px 10px 10px 10px; 
+  padding: 10px 10px 10px 10px; 
+  border: solid 1px #8b7348; 
+  background-color: rgb(0, 86, 172); 
+}
+#ex6 section { 
+  margin: 0; 
+  padding: 10px 25px; 
+  border: dotted 1px red; 
+  background-color: #FFFFFF; 
+}
+#ex7 p { 
+  margin: 5px auto; 
+  padding: 10px; 
+  width: 40%; 
+  border: solid 10px red; 
+  background-color: #FFCCFF;
+  margin-left: auto;
+  margin-right: auto;
+}
+#ex8 ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 0.8em;
+}
+#ex8 ol li {
+    display: inline;
+}
+#ex8 ol li::after {
+  content: "▶";
+  padding-left: 7px;
+}
+#ex8 ol li:last-child::after {
+    content: none;
+}
+footer {
+  display: block;
+  background-color: #352b23;
+  color: #ffffff;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+address {
+    display: inline;
+    margin-left: auto;
+    margin-right: auto;
+}
+#share { 
+  position: fixed; 
+  bottom: 10px; 
+  right: 10px; 
+}
