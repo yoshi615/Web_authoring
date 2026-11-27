@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>第9回実習：レイアウトを組もう</title>
+    <meta name="description" content="グリッドアイテム(子要素)をタイル状に並べる練習">
+    <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
+    <link rel="stylesheet" href="css/no9.css">
+</head>
+
+<body>
+<header>
+    <ul>
+      <li><a href="no9_flexbox.html">レイアウト練習1</a></li>
+      <li>レイアウト練習2</li>
+      <li><a href="no9_box_exercises.html">レイアウト練習3</a></li>
+    </ul>
+
+    <h1>CSSグリッドでタイル状にアイテムを並べよう(3-17)</h1>
+</header>
+
+<div class="main">
+    <p>教科書に従って、以下の子要素をレイアウトしよう。</p>
+    <p><code>.item2</code>プロパティに背景色と余白を設定しよう(154ページ)。Flexboxの練習のスタイルと、異なる背景色、文字色を指定すること。</p>
+    <h2>display プロパティに gridを指定 (<code>.container2</code>セレクタに設定、161ページ。この時点ではアイテムにはレイアウト上の変更はありません)</h2>
+    <div class="container2">
+        <div class="item2">Item 1</div>
+        <div class="item2">Item 2</div>
+        <div class="item2">Item 3</div>
+        <div class="item2">Item 4</div>
+        <div class="item2">Item 5</div>
+        <div class="item2">Item 6</div>
+    </div>
+
+    <h2>grid-template-columnsプロパティで各グリッドを200pxずつ並べるように指定(<code>.container2</code>セレクタにスタイルを追加、161ページ)</h2>
+    <div class="container2">
+        <div class="item2">Item 1</div>
+        <div class="item2">Item 2</div>
+        <div class="item2">Item 3</div>
+        <div class="item2">Item 4</div>
+        <div class="item2">Item 5</div>
+        <div class="item2">Item 6</div>
+    </div>
+    <h2>gapプロパティで子要素の間に余白10pxを追加(<code>.container2</code>セレクタにスタイルを追加、162ページ)</h2>
+    <div class="container2">
+        <div class="item2">Item 1</div>
+        <div class="item2">Item 2</div>
+        <div class="item2">Item 3</div>
+        <div class="item2">Item 4</div>
+        <div class="item2">Item 5</div>
+        <div class="item2">Item 6</div>
+    </div>
+    <h2>grid-template-columnsプロパティで要素を1:1:1の割合で(1fr 1fr 1fr)配置(<code>#ex6</code>セレクタに設定すること、162-163ページ)</h2>
+    <p>*fr = fraction 「比率」</p>
+    <div class="container2" id="ex6">
+        <div class="item2">Item 1</div>
+        <div class="item2">Item 2</div>
+        <div class="item2">Item 3</div>
+        <div class="item2">Item 4</div>
+        <div class="item2">Item 5</div>
+        <div class="item2">Item 6</div>
+    </div>
+    <h2>grid-template-columns, grid-template-rowsプロパティで要素を横1:1:1の割合、縦200px, 200pxで配置(<code>#ex7</code>セレクタに設定すること、163ページ)</h2>
+    <div class="container2" id="ex7">
+        <div class="item2">Item 1</div>
+        <div class="item2">Item 2</div>
+        <div class="item2">Item 3</div>
+        <div class="item2">Item 4</div>
+        <div class="item2">Item 5</div>
+        <div class="item2">Item 6</div>
+    </div>
+</div>
+<footer>
+  <div>
+    2026-11-27公開; 2026-11-xx更新<br>
+    <small>2026 &copy; Your Name</small><br>
+    <address style="display:inline">このページに関するお問い合わせ: your-user-id@reitaku.jp</address>
+  </div>
+</footer>
+</body>
+
+</html>

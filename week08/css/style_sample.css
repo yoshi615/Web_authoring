@@ -17,6 +17,12 @@ img {
     max-width: 100%;
 }
 
+.wrapper {
+    max-width: 1120px;
+    margin: auto;
+    padding: 0 1.5rem;
+}
+
 .align-center {
     text-align: center;
 }
@@ -145,3 +151,40 @@ img {
 /* ★HTMLとCSSの文法チェックをおこない、必要な修正を終えたらWebサーバにFTPしよう。top.htmlが使用する画像が「www」フォルダの「img」フォルダの中に、このスタイルシートが同じく「www」フォルダの中の「css」フォルダにアップロードされていることが必要。 */
 /* ★ブラウザで、FTPしたコンテンツを閲覧してみよう。以下のUser-IDのところが自身のユーザIDとなる。URL: https://www.cs.reitaku-u.ac.jp/~User-ID/top.html */
 /* 以上 */
+
+@media (min-width: 800px) {
+    .page-title {
+        font-size: 5rem;
+    }
+
+    .heading-large {
+        font-size: 4rem;
+    }
+
+    .page-header {
+        display: flex;
+        justify-content: space-between;
+        padding-top: 1.5rem;
+    }
+
+    .main-nav {
+        font-size: 2rem;
+    }
+
+    .cover-home {
+        background-image: url('../img/cover-home-l.webp');
+    }
+
+    .about {
+        margin: 4rem auto 0;
+    }
+
+    .page-footer {
+        background-image: url('../img/footer-l.webp');
+        padding-top: 12rem;
+    }
+
+    .info th{
+        padding-left: 2.5rem;
+    }
+}

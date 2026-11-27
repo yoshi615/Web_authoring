@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>第9回実習：レイアウトを組もう</title>
+    <meta name="description" content="横並びのボックス">
+    <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
+    <link rel="stylesheet" href="css/no9.css">
+</head>
+<body>
+<header>
+    <ul>
+      <li><a href="no9_flexbox.html">レイアウト練習1</a></li>
+      <li><a href="no9_grid.html">レイアウト練習2</a></li>
+      <li>レイアウト練習3</li>
+    </ul>
+
+    <h1>練習問題</h1>
+    <p>以下の指示に従って、「box」クラスが設定されたセレクタにスタイルを設定してください。</p>
+    <ol>
+        <li>「box」クラスの背景色(background-color)を #aef (#aaeeff) にする。</li>
+        <li>「box」クラスの要素の横幅(width)を400pxにする。</li>
+        <li>「box」クラスの内側の余白(padding)を2rem、外側の余白を1remにする。</li>
+        <li>「box」クラスの要素を横に並べる(container3クラスにフレックスボックスを使用。補足資料§3-16参照)。</li>
+        <li>「box」の要素を画面中央に並べる(container3クラスにjustify-contentプロパティを使用。補足資料§3-16参照)。</li>
+    </ol>
+</header>
+
+<div class="main">
+    <div class="container3">
+        <div class="box">
+            <p>
+                ボックスの内容。
+                ボックスの内容。
+            </p>
+        </div>
+        <div class="box">
+            <p>
+                ボックスの内容。
+                ボックスの内容。
+            </p>
+        </div>
+    </div>
+</div>
+
+<footer>
+  <div>
+    2026-11-27公開; 2026-11-27更新<br>
+    <small>2026 &copy; Kitaura Yoshiyuki</small><br>
+    <address style="display:inline">このページに関するお問い合わせ: a240906y@reitaku.jp</address>
+  </div>
+</footer>
+
+</body>
+</html>
